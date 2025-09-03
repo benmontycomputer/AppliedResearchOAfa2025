@@ -6,7 +6,7 @@ model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-xl", device_m
 
 input_text = "translate English to German: How old are you?"
 # TODO: update this depending on what device we are running on
-input_ids = tokenizer(input_text, return_tensors="pt").input_ids.to("mps")#.to("cuda")
+input_ids = tokenizer(input_text, return_tensors="pt").input_ids.to("cuda")
 
 outputs = model.generate(input_ids)
 print(tokenizer.decode(outputs[0]))
